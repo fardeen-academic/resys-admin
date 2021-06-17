@@ -1,0 +1,350 @@
+*{
+    font-family: 'Sen', sans-serif;
+    font-weight: 500;
+    margin: 0%;
+}
+body{
+    background-color: #adcce0;
+}
+body {    
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #adcce0 no-repeat center 50%;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 20%;
+    z-index: 999;
+}
+
+#logoutmodal{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    vertical-align: middle;
+    text-align: center;
+    z-index: 999;
+    display: none;
+}
+
+
+.logout_modal{
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 425px;
+    height: auto;
+    top: 28%;
+    left: 38%;
+    padding: 50px;
+
+}
+
+.logout_button{
+    background-color: #ffffff;
+    border: 1px black solid;
+    border-radius: 10px;
+    height: 35px;
+    width: 80px;
+}
+
+.logout_button:hover, .logout_cancel:hover{
+    background-color: black;
+    border: white;
+    color: white;
+}
+
+.logout_cancel{
+    background-color: #ffffff;
+    border: 1px black solid;
+    border-radius: 10px;
+    height: 35px;
+    width: 80px;
+}
+
+.container{
+    position: fixed;
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    grid-template-rows: 10% 90%;
+    border-radius: 10px;
+    height: 95vh;
+}
+.left{
+    grid-column: 1/2;
+    background-color: #708090;
+    color: #ffffff;
+    border-radius: 20px 0 0 20px;
+    height: 100vh;
+    position: relative;
+
+
+}
+.logotable{
+    height: 10%;
+    padding: 15px;
+    padding-right: 30px;
+}
+.stamford{
+    font-size: 25px;
+    text-align: left;
+    margin-left: 15px;
+    color: #ffffff;
+}
+.logo{
+    margin-left: 10px;
+    height: 70%;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    padding: 25px;
+    margin: 10px;
+    font-size: 20px;
+    width: 70%;
+    border-radius: 10px;
+    
+}
+
+.fa-angle-right{
+    display: none;
+    margin-left: auto;
+    float:right;
+}
+
+.btn:hover, .active{
+    color: #000000;
+    background-color:  #ebf2ff;
+    transition: all 0.4s;
+}
+.btn:hover .fa-angle-right{
+    display: block;
+}
+
+i{
+    padding-right: 20px;
+    padding-left: 5px;
+}
+.menu{
+    border: 0px;
+    border-radius: 5px;
+}
+.fa-arrow-right{
+    display:none;
+}
+
+.name_pic{
+    grid-row: 1/2;
+    grid-column: 2/3;
+    text-align: center;
+    display: inline;
+    border-radius: 0 20px 0 0;
+    background-color: #ffffff;
+    border-bottom: 0;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 10px -30px;
+    position:relative;
+    z-index:2;
+}
+#pagetitle{
+    display: inline;
+    top: 50%;
+    float: left;
+    margin-left: 50px;
+    color: #2d3041;
+}
+
+.namepic{
+    text-align: right;
+    margin-left: auto; 
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.main{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    height: 100%;
+    background-color: #f8f8f8;
+    /*border: #0c0c16 2px solid;*/
+    border-top: 0;
+    padding: 20px 30px 20px 30px;
+}
+
+
+#name{
+    font-size: 25px;
+    padding-right: 25px;
+    top: 50%;
+    bottom: 50%;
+}
+
+#profilepic{
+    border: #0c0c16 2px solid;
+    border-radius: 50%;
+    height: 50px;
+}
+.contact{
+    vertical-align: bottom;
+    background-color: #ffffff;
+    padding-left: 30px;
+    padding-top: 17px;
+    padding-bottom: 10px;
+    margin: 50px;
+    border-radius: 30px;
+    position: absolute;
+    width: 65%;
+    bottom: 0;
+}
+h3{
+    color: #7c7c7c;
+    font-size: 18px;
+}
+h4{
+    color: black;
+    font-size: 16px;
+}
+
+.contact:hover{
+    color: #ebf2ff;
+    background-color: #4e55eb;    
+}
+
+
+.construction{
+    text-align: center;
+    padding: 12%;
+    bottom: 50%;
+}
+
+#namesearch{
+    margin-bottom: 5px;
+    width: 90%;
+}
+
+.students ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+
+
+#studentlist{
+    overflow-y: scroll;
+    height: 675px;
+}
+
+#studentlist li{
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 90%;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 10px -30px;
+}
+
+#studentlist li span{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 350px;
+    overflow: hidden;
+}
+
+
+#studentlist li:hover{
+    border: 2px #708090 solid;
+    background-color: #EBF2FF;
+}
+
+#studentlist li:nth-child(1){
+    background-color: #708090;
+    color: #ffffff;
+}
+#studentlist li:nth-child(1) span:nth-child(2){
+    color: #ffffff;
+}
+
+
+#studentlist li span:nth-child(2){
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #8f8f8f;
+    width: max-content;
+    display: inline-block;
+    width: 280px;
+
+}
+
+#studentlist{
+    margin-top: 10px;
+
+}
+form{
+    padding: 20px;
+    text-align: center;
+    margin-left: 35%;
+}
+#addstudent{
+    text-align: center;
+    padding-top: 5%;
+}
+input{
+    border: 1px;
+    width: 300px;
+    height: 40px;
+    display: block;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 30px;
+    font-size: 16px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 10px -30px;
+
+}
+#savestudent{
+    border: 1px solid;
+    color: black;
+    background-color: white;
+    width: 340px;
+    height: 55px;
+    display: block;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 10px -30px;
+
+}
+
+#savestudent:hover{
+    border: 1px solid;
+    color: white;
+    background-color: black;
+}
+
+@media only screen and (max-width:900px){
+    .left{
+        display: none;
+        position: fixed;
+        width: 100%;
+        z-index: 99999;
+    }
+    .fa-bars{
+        display: block;
+        float: left;
+        margin: 25px;
+    }
+    .logout_modal{
+        width: 90%;
+        top: 25%;
+        left: 0;
+    }
+}

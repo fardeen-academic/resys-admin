@@ -1,0 +1,116 @@
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body{
+    background-image: linear-gradient(to right,rgb(27, 27, 80),rgb(77, 77, 131),rgb(89, 89, 211));
+}
+.container{
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-top: 4%;
+    padding-bottom: 5%;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #ffffff;  
+}
+
+img{
+    width: 75%;
+}
+h1{
+    font-size: 35px;
+}
+
+h2{
+    font-size: 30px;
+    color: midnightblue;
+
+}
+.input{
+    height: 40px;
+    width: 300px;
+    max-width: 60%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 15px;
+    padding-left: 15px;
+    border: 1px solid;
+}
+.input:focus{
+    border-color: midnightblue;
+    border: 2px solid;
+    background-color: rgb(244, 251, 255);
+}
+
+.btn{
+    margin-top: 10px;
+    height: 45px;
+    width: 325px;
+    font-size: 15px;
+    background-color: midnightblue;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid midnightblue;
+}
+
+.btn:hover{
+    background-color: #ffffff;
+    border-color: midnightblue;
+    color: midnightblue;
+    transition: all 0.4s;
+    border: 2px solid;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+
+i{
+    position:relative;
+    z-index:9;
+    right: 40px;
+  }
+
+@media screen and (max-width: 1000px){
+    img{
+        width: 75%;
+    }
+    .btn{
+        width: 75%;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    body{
+        text-align: center;
+        background-color: darkblue;
+        padding: 15%;
+    }
+    .container{
+        width: 100%;
+        margin-left: 0;
+    }
+    img{
+        width: 75%;
+    }
+    .input{
+        width: 75%;
+    }
+    .btn{
+        width: 75%;
+    }
+    h2{
+        font-size: 20px;
+    }
+
+}

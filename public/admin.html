@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Portal</title>
+        <link rel="stylesheet" href="css/admin.css">
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
+
+    </head>
+    <body onload="interval()">
+        <div id="preloader">
+            <img src="/img/infinity.svg">
+            <h3>Loading...</h3>
+        </div>
+        <div id="logoutmodal">
+            <div class="logout_modal">
+                <h2>Are you sure to log out?</h2><br>
+                <button class="logout_cancel" onclick="logout_modal()">Cancel</button>
+                <button class="logout_button" onclick="logout()">Logout</button>
+                
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="left" class="left">
+                <table class="logotable">
+                    <tr>
+                        <td><img class="logo" src="img/rsz_logo.png"></td>
+                        <td><h3 class="stamford">Stamford University Bangladesh</h3></td>
+                    </tr>
+                </table>
+                  
+                <ul class="menu" id="menu">
+                    <li class="btn active" onclick="students()"><i class="fa fa-user" aria-hidden="true"></i>Students
+                        <i class="fas fa-angle-right"></i></li>
+                    <li class="btn" onclick="addstudent()"><i class="fas fa-user-plus"></i>Add Student
+                        <i class="fas fa-angle-right"></i></li>
+                    <li class="btn" onclick="logout_modal()"><i class="fas fa-sign-out-alt"></i>Log out
+                        <i class="fas fa-angle-right"></i></li>                    
+                </ul>
+                <div class="contact">
+                    <h3>Having troubles?</h4>
+                    <h4>Contact us</h3>
+                </div>
+                
+            </div>
+            <div class="name_pic">
+                <table class="namepic">
+                    <h2 id="pagetitle">Students</h2>
+                    <tr>
+                        <td class="name"><h2 id="name"></h2></td>
+                        <td class="profilepic"><img id="profilepic" src="img/profile.svg"></td>
+                    </tr>
+                </table>
+                </span>
+                <span class="profilepic">
+                
+                </span>
+            </div>
+            <div class="main">
+                
+                <!--Render student List-->
+                <div id="students" class="students">
+                    <input id="namesearch" onkeyup="search()" type="text" placeholder="Search by Name">
+                    <ul id="studentlist">
+                        <li>
+                            <span>Name</span>
+                            <span>ID</span>
+                            <span>Email</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Render Add student form-->
+                <div id="addstudent" class="addstudent">
+                    <h1>Add Student Form</h1>
+                    <form id="registerstudent">
+                        <input id="sname" type="text" placeholder="Student Name">
+                        <input id="sid" type="text" placeholder="Student ID">
+                        <input id="semail" type="text" placeholder="Student Email">
+                        <input id="spass" type="text" placeholder="Student Password">
+                        <input id="savestudent" type="submit" value="Add Student">
+
+
+                    </form>
+                </div>
+
+
+
+                <div id="construction" class="construction">
+                    <img src="img/construction.svg" width="500px">
+                    <br><br><br>
+                    <h1>This option is under construction.</h1>
+                </div>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+        <script src="js/firebase.js"></script>
+        <script src="js/admin.js"></script>
+        <script>
+            function search(){
+              // Declare variables
+              var input, filter, ul, li, a, i, txtValue;
+              input = document.getElementById('namesearch');
+              filter = input.value.toUpperCase();
+              ul = document.getElementById("studentlist");
+              li = ul.getElementsByTagName('li');
+            
+              // Loop through all list items, and hide those who don't match the search query
+              for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("span")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+                } else {
+                  li[i].style.display = "none";
+                }
+              }
+            }
+            </script>
+    </body>
+</html>
