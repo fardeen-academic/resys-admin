@@ -7,10 +7,11 @@ var s = document.getElementById("students");
 var a = document.getElementById("addstudent");
 var c = document.getElementById("construction");
 var pagetitle = document.getElementById("pagetitle")
+var regapprove_modal = document.getElementById("regapprove_modal");
 s.style.display = "block";
 c.style.display = "none";
 a.style.display = "none";
-    
+regapprove_modal.style.display="none";    
 
 function students(){
     s.style.display = "block";
@@ -71,7 +72,7 @@ function renderstudent(doc){
     let name = document.createElement('span');
     let studentid = document.createElement('span');
 
-    li.setAttribute('data-id', doc.id);
+    li.setAttribute('id', doc.id);
     name.textContent = doc.data().Name;
     studentid.textContent = doc.data().studentID;
     
@@ -122,25 +123,107 @@ registerform.addEventListener('submit',(e)=>{
         registerform.reset();
         // ..
       });
-    
-    
 })
 
-var preloader = document.getElementById('preloader');
-            var name = document.getElementById('name');
-            function interval(){
-                setInterval(loaderfunc, 0000);
-            }
-            function loaderfunc(){
-                preloader.style.display='none'
-            }
-            var logoutmodal = document.getElementById('logoutmodal');
-            function logout_modal(){
-                if(logoutmodal.style.display=='none'){
-                    logoutmodal.style.display='block';
-                }
-                else{
-                    logoutmodal.style.display='none';
-                }
-                
-            }
+
+function renderpending(doc){
+    let li= document.createElement('li');
+    let studentid = document.createElement('span');
+
+    li.setAttribute('id', doc.id);
+    li.setAttribute('onclick', 'regapprovemodal(doc.id);');
+    li.onclick = function() {regapprovemodal(doc.id);};
+    db.collection('student').doc(doc.id).get()
+        .then(doc=>{
+        studentid.textContent = doc.data().studentID;
+        })
+    li.appendChild(studentid);
+    pendinglist.appendChild(li);    
+}
+
+db.collection('pending').get().then((onSnapshot)=>{
+    onSnapshot.docs.forEach(doc=>{
+        renderpending(doc);
+    })
+})
+var csi115 = "Computer and Programming Concept"
+var csi116 = "Computer and Programming Concept Sessional"
+var eee193 = "Electronics"
+var math135 = "Discrete Math"
+var phy217 = "Physics"
+function regapprovemodal(id){
+    regapprove_modal.style.display='block';
+    let a_button= document.createElement('button');
+    a_button.setAttribute('class','ra raa');
+    a_button.innerHTML = "Approve";
+    a_button.setAttribute('onclick', 'regapprove(id);');
+    a_button.onclick = function() {regapprove(id);};
+    document.getElementById('ra').appendChild(a_button);
+    db.collection('student').doc(id).get()
+        .then(doc=>{
+            document.getElementById("studentID").innerHTML = doc.data().studentID;
+            document.getElementById("studentname").innerHTML = doc.data().Name;
+        })
+        db.collection('pending').doc(id).get()
+        .then(doc=>{
+            document.getElementById("semester").innerHTML = doc.data().semester;
+            document.getElementById("subc1").innerHTML = sub_code(doc.data().sub_code1);
+            document.getElementById("sub1").innerHTML ="\t"+eval(doc.data().sub_code1);
+            document.getElementById("subc2").innerHTML = sub_code(doc.data().sub_code2);
+            document.getElementById("sub2").innerHTML ="\t"+ eval(doc.data().sub_code2);
+            document.getElementById("subc3").innerHTML = sub_code(doc.data().sub_code3);
+            document.getElementById("sub3").innerHTML ="\t"+ eval(doc.data().sub_code3);
+            document.getElementById("subc4").innerHTML = sub_code(doc.data().sub_code4);
+            document.getElementById("sub4").innerHTML = "\t"+eval(doc.data().sub_code4);
+            document.getElementById("subc5").innerHTML = sub_code(doc.data().sub_code5);
+            document.getElementById("sub5").innerHTML = "\t"+eval(doc.data().sub_code5);
+            
+        })
+}
+function sub_code(sub_code){
+    var scode = [sub_code.slice(0, -3), " ", sub_code.slice(-3)].join('').toUpperCase();
+    return scode;
+  }
+var sem,c1,c2,c3,c4,c5;
+var foo={};
+    
+function regapprove(id){
+    db.collection('pending').doc(id).get()
+        .then(doc=>{
+            sem = doc.data().semester;
+            c1 = doc.data().sub_code1;
+            c2 = doc.data().sub_code2;
+            c3 = doc.data().sub_code3;
+            c4 = doc.data().sub_code4;
+            c5 = doc.data().sub_code5;
+            foo[c1]=0;
+            console.log(typeof(c2),c2);
+            if(c2!=''){
+                foo[c2]=0};
+            if(c3!=''){
+                foo[c3]=0};
+            if(c4!=''){
+                foo[c4]=0};
+            if(c5!=''){
+                foo[c5]=0};
+            console.log(foo);
+            db.collection('student').doc(id).collection('result').doc(sem).set(foo)
+            .catch((error)=>{
+                console.log(error);
+                window.alert(error);
+            })
+            deletepending(id);
+            window.alert('Registration Approved!');
+        })
+        setInterval(2000);
+        
+
+}
+
+function deletepending(id){
+    db.collection("pending").doc(id).delete().then(() => {
+        console.log("Document successfully deleted!");
+    }).catch((error) => {
+        console.error("Error removing document: ", error);
+    });
+}

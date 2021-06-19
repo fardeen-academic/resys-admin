@@ -16,8 +16,8 @@
         </div>
         <div id="logoutmodal">
             <div class="logout_modal">
-                <h2>Are you sure to log out?</h2><br>
-                <button class="logout_cancel" onclick="logout_modal()">Cancel</button>
+                <h2>Are you sure to log out?</h2><br><br><br>
+                <button class="logout_cancel" onclick="exit_logout_modal()">Cancel</button>
                 <button class="logout_button" onclick="logout()">Logout</button>
                 
             </div>
@@ -25,28 +25,28 @@
 
         <div class="container">
             <div id="left" class="left">
+                  
+                <ul class="menu" id="menu">
+                    <li class="btn active" onclick="students()"><i class="fa fa-user" aria-hidden="true"></i>Students
+                        <i class="fas fa-angle-right"></i></li>
+                    <li class="btn" onclick="addstudent()"><i class="fas fa-user-plus"></i>Add Student
+                        <i class="fas fa-angle-right"></i></li>                  
+                </ul>
+                <ul class="menu" id="menu2">
+                    <li class="btn" onclick="settings()"><i class="fas fa-cog"></i></i>Settings
+                        <i class="fas fa-angle-right"></i></li>
+                    <li class="btn" onclick="logout_modal()"><i class="fas fa-power-off"></i>Log out
+                        <i class="fas fa-angle-right"></i></li>                    
+                </ul>
+                
+            </div>
+            <div class="name_pic">
                 <table class="logotable">
                     <tr>
                         <td><img class="logo" src="img/rsz_logo.png"></td>
                         <td><h3 class="stamford">Stamford University Bangladesh</h3></td>
                     </tr>
                 </table>
-                  
-                <ul class="menu" id="menu">
-                    <li class="btn active" onclick="students()"><i class="fa fa-user" aria-hidden="true"></i>Students
-                        <i class="fas fa-angle-right"></i></li>
-                    <li class="btn" onclick="addstudent()"><i class="fas fa-user-plus"></i>Add Student
-                        <i class="fas fa-angle-right"></i></li>
-                    <li class="btn" onclick="logout_modal()"><i class="fas fa-sign-out-alt"></i>Log out
-                        <i class="fas fa-angle-right"></i></li>                    
-                </ul>
-                <div class="contact">
-                    <h3>Having troubles?</h4>
-                    <h4>Contact us</h3>
-                </div>
-                
-            </div>
-            <div class="name_pic">
                 <table class="namepic">
                     <h2 id="pagetitle">Students</h2>
                     <tr>
@@ -59,8 +59,7 @@
                 
                 </span>
             </div>
-            <div class="main">
-                
+            <div class="main">               
                 <!--Render student List-->
                 <div id="students" class="students">
                     <input id="namesearch" onkeyup="search()" type="text" placeholder="Search by Name">
@@ -68,7 +67,6 @@
                         <li>
                             <span>Name</span>
                             <span>ID</span>
-                            <span>Email</span>
                         </li>
                     </ul>
                 </div>
@@ -88,11 +86,55 @@
                 </div>
 
 
-
                 <div id="construction" class="construction">
                     <img src="img/construction.svg" width="500px">
                     <br><br><br>
                     <h1>This option is under construction.</h1>
+                </div>
+            </div>
+            <div class="sidebar">
+                    <h3>Pending Registration</h3>
+                    <ul id="pendinglist"></ul>
+            </div>
+            <div id="regapprove_modal">
+                <div class="regapprove_modal">
+                    <h2>Pending Registration</h2><br>
+                    <h3 id="studentID"></h3>
+                    <h3 id="studentname"></h3>
+                    <br>
+                    <ul id="pendingl">
+                        <li>
+                            <span id="semester"></span>
+                            <span> Semester</span>
+                        </li>
+                        <li>
+                            <span id="subc1"></span>
+                            <span id="sub1"></span>
+                        </li>
+                        <li>
+                            <span id="subc2"></span>
+                            <span id="sub2"></span>
+                        </li>
+                        <li>
+                            <span id="subc3"></span>
+                            <span id="sub3"></span>
+                        </li>
+                        <li>
+                            <span id="subc4"></span>
+                            <span id="sub4"></span>
+                        </li>
+                        <li>
+                            <span id="subc5"></span>
+                            <span id="sub5"></span>
+                        </li>
+                        
+                    </ul>
+                    <br>
+                    <div id="ra">
+                    <button class="ra rar" onclick="">Reject</button>
+                    </div>
+                    <br>
+                    <button class="ra rac" onclick="hideramodal()">Cancel</button>
                 </div>
             </div>
         </div>
@@ -124,6 +166,25 @@
                   li[i].style.display = "none";
                 }
               }
+            }
+
+            var preloader = document.getElementById('preloader');
+            var name = document.getElementById('name');
+            function interval(){
+                setInterval(loaderfunc, 000);
+            }
+            function loaderfunc(){
+                preloader.style.display='none'
+            }
+            var logoutmodal = document.getElementById('logoutmodal');
+            function logout_modal(){
+                logoutmodal.style.display='block';               
+            }
+            function exit_logout_modal(){
+                logoutmodal.style.display='none';               
+            }
+            function hideramodal(){
+                document.getElementById('regapprove_modal').style.display='none';
             }
             </script>
     </body>
