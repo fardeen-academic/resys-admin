@@ -151,6 +151,48 @@ var csi116 = "Computer and Programming Concept Sessional"
 var eee193 = "Electronics"
 var math135 = "Discrete Math"
 var phy217 = "Physics"
+var csi123 = "Structured Programming Language"
+var engl100 = "English Fundamentals"
+var csi124 = "Structured Programming Language Sessional"	
+var eee195 = "Electronics"	
+var eee196 = "Electronics Sessional"	
+var engl101 = "Composition"
+var math113 = "Differential & Integral Calculus"
+var cse133 = "Digital Logic Design"
+var cse134 = "Digital Logic Design Sessional"
+var csi221 = "Data Structure"
+var csi222 = "Data Structure Sessional"
+var engl102 = "Public Speaking"
+var soc113 = "Bangladesh Studies"
+var acct227 = "Accounting"
+var cse213 = "Digital Electronics & Pulse Technique"
+var cse214 = "Digital Electronics & Pulse Technique Sessional"
+var math225 = "Coordinate Geometry & Vector Calculus"
+var cse233 = "Computer Organization & Architecture"
+var cse234 = "Computer Organization & Architecture Sessional"
+var csi231 = "Algorithms"
+var csi232 = "Algorithms Sessional"
+var econ319 = "Economics"
+var math237 = "Matrix & Differential Equation"
+var csi223 = "Database Management System"
+var csi315 = "Theory of Computing"
+var cse335 = "Data Communication"
+var csi421 = "Artificial Intelligence & Expert Systems"
+var engl137 = "Technical Writing And Communication"
+var cse415 = "Computer Networks"
+var csi233 = "Advanced Programming"
+var csi323 = "System Analysis & Design"
+var math319 = "Fourier Analysis & Laplace Transformation"
+var math337 = "Mathematical Analysis for Computer Science"
+var csi313 = "Operating System"
+var csi314 = "Operating System Sessional"
+var csi331 = "Software Engineering"
+var csi332 = "Software Engineering Sessional"
+var csi483 = "Machine Learning"
+var math327 = "Numerical Methods"
+var cse327 = "Microprocessor and Interfacing"
+
+
 function regapprovemodal(id){
     regapprove_modal.style.display='block';
     let a_button= document.createElement('button');
@@ -196,17 +238,27 @@ function regapprove(id){
             c3 = doc.data().sub_code3;
             c4 = doc.data().sub_code4;
             c5 = doc.data().sub_code5;
-            foo[c1]=0;
-            console.log(typeof(c2),c2);
+            if(c1!=''){
+                foo['s1']=c1;
+                foo['r1']=0;
+            };
             if(c2!=''){
-                foo[c2]=0};
+                foo['s2']=c2;
+                foo['r2']=0;
+            };
             if(c3!=''){
-                foo[c3]=0};
+                foo['s3']=c3;
+                foo['r3']=0;
+            };
             if(c4!=''){
-                foo[c4]=0};
+                foo['s4']=c4;
+                foo['r4']=0;
+            };
             if(c5!=''){
-                foo[c5]=0};
-            console.log(foo);
+                foo['s5']=c5;
+                foo['r5']=0;
+            };
+            
             db.collection('student').doc(id).collection('result').doc(sem).set(foo)
             .catch((error)=>{
                 console.log(error);
@@ -214,6 +266,7 @@ function regapprove(id){
             })
             deletepending(id);
             window.alert('Registration Approved!');
+            document.getElementById('regapprove_modal').style.display='none';
         })
         setInterval(2000);
         
