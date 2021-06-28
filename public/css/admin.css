@@ -348,7 +348,7 @@ input{
     grid-column: 3/4;
     grid-row: 2/3;
     background-color: #FFFFFF;
-    color: #81868d;
+    color: #4e55eb;
     border-radius: 20px;
     height: 85vh;
     position: relative;
@@ -439,6 +439,92 @@ input{
     background-color: #4456C6;
 }
 
+
+#semester{
+    width: 200px;
+    margin: 0 auto;
+    padding-left: 10px;
+    margin-right: 10px;
+    display: inline;
+    height: 50px;
+}
+.semester{
+    display: inline;
+    margin-right: 20px;
+}
+.pbtn{
+    padding-top: 20px;
+}
+
+.pbtn .btn, #resultform .btn{
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 150px;
+    background-color: #ffffff; 
+    border: 1px solid black; 
+    border-radius: 5px;
+    height: 50px;
+}
+
+.pbtn .btn:hover, #resultform .btn:hover{
+    background-color: #4e55eb;
+    color: #ffffff;
+}
+#sdetails{
+    margin-top: 50px;
+    text-align: center;
+}
+#semesternum{
+    height: 50px;
+    width: 200px;
+}
+#sdetails #resultform{
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
+
+#num1,#num2,#num3,#num4,#num5{
+    width: 75px;
+    height: 30px;
+    padding: 0;
+    padding-left: 20px;
+    margin: 0;
+    border: 1px solid #4e55eb;
+}
+
+#resultupdate{
+    margin: 0;
+    padding: 0;
+}
+
+#update_button{
+    margin-top: 30px;
+    width: 200px;
+    height: 50px;
+    background-color: #4e55eb;
+    border: 0px;
+    color: #ffffff;
+    border-radius: 6px;
+}
+
+#update_button:hover{
+    border: 2px #4e55eb solid;
+    background-color: #ffffff;
+    color: #4e55eb;
+}
+
+#ringloader{
+    color: #4e55eb;
+    margin-top: -500px;
+    background-color: #F9FAFD;
+    margin-bottom: 500px;
+    height: 70vh;
+    position: relative;
+}
+
+#stinfo{
+    line-height: 35px;
+}
 @media only screen and (max-width:900px){
     .left{
         display: none;
