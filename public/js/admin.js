@@ -216,7 +216,7 @@ function regapprovemodal(id){
         })
         db.collection('pending').doc(id).get()
         .then(doc=>{
-            document.getElementById("semester").innerHTML = doc.data().semester;
+            document.getElementById("pendingsemester").innerHTML = doc.data().semester;
             document.getElementById("subc1").innerHTML = sub_code(doc.data().sub_code1);
             document.getElementById("sub1").innerHTML ="\t"+eval(doc.data().sub_code1);
             document.getElementById("subc2").innerHTML = sub_code(doc.data().sub_code2);
@@ -287,7 +287,10 @@ function deletepending(id){
 function get_gpa(n){
     gpa=0;
     grade="";
-    if(n>=80){
+    if(n>100){
+      gpa=-1;
+      grade="Error";
+    }else if(n>=80){
       gpa=4.0;
       grade = "A+";
     }else if(n>=75){
@@ -326,7 +329,8 @@ function renderresult(doc, sid, semester){
   update_button.onclick = function() {updateresult(sid, semester);};
   var blank = document.getElementsByClassName('blanktable');
   for (i = 0; i < blank.length; i++) {
-    blank[i].innerHTML = "";
+    blank[i].innerHTML = " ";
+    blank[i].value = "0"
   }
     document.getElementById('s1').innerHTML = sub_code(doc.s1);
     document.getElementById('subn1').innerHTML = eval(doc.s1);

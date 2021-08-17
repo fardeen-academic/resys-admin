@@ -5,6 +5,7 @@
 }
 body{
     background-color: #adcce0;
+    width: 100%;
 }
 body {    
     margin: 0 !important;
@@ -477,6 +478,9 @@ input{
 #semesternum{
     height: 50px;
     width: 200px;
+    padding-left: 25px;
+    padding-right: 10px;
+    text-align: center;
 }
 #sdetails #resultform{
     margin-bottom: 20px;
@@ -525,21 +529,23 @@ input{
 #stinfo{
     line-height: 35px;
 }
-@media only screen and (max-width:900px){
-    .left{
+.mobile{
+    display: none;
+}
+@media only screen and (max-width:1000px){
+    .container{
         display: none;
-        position: fixed;
-        width: 100%;
-        z-index: 99999;
     }
-    .fa-bars{
+    .mobile{
         display: block;
-        float: left;
-        margin: 25px;
+        text-align: center;
+        margin: 30% 5%;
+        line-height: 30px;
     }
-    .logout_modal{
-        width: 90%;
-        top: 25%;
-        left: 0;
+    h3{
+        color: black;
+    }
+    h4{
+        color: #2d3041;
     }
 }
